@@ -38,7 +38,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'web/assets/background.png'), // Conserver le nom de l'image de fond
+                'assets/images/back.png'), // Conserver le nom de l'image de fond
             fit: BoxFit.cover,
           ),
         ),
@@ -164,7 +164,7 @@ class ProductInfo extends StatelessWidget {
                   CircleAvatar(
                     radius: 14,
                     backgroundImage: AssetImage(
-                        'web/assets/girl.png'), // Conserver le nom de l'image du vendeur
+                        'assets/images/poupee.png'), // Conserver le nom de l'image du vendeur
                   ),
                   SizedBox(width: 8.0),
                   Text(
@@ -178,7 +178,7 @@ class ProductInfo extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-              'web/assets/produit.png', // Conserver le nom de l'image du produit
+              'assets/images/produit.png', // Conserver le nom de l'image du produit
               width: 60.0,
               height: 60.0,
               fit: BoxFit.cover,
