@@ -47,7 +47,7 @@ class Infprod extends StatelessWidget {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             // *** Informations (Titre, Vendeur, Numéro, Étoiles) à droite de l'image ***
                             Expanded(
                               child: Column(
@@ -133,7 +133,7 @@ class Infprod extends StatelessWidget {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 8,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           ),
                         ],
                       ),
@@ -185,7 +185,7 @@ class Infprod extends StatelessWidget {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 8,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           ),
                         ],
                       ),
@@ -210,7 +210,7 @@ class Infprod extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
 
                     // *** Bouton Ajouter au panier ***
                     ElevatedButton(

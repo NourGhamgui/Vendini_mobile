@@ -5,38 +5,33 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Déclaration du ScrollController pour contrôler le défilement
-    ScrollController _scrollController = ScrollController();
-
     return Scaffold(
       body: Stack(
         children: [
           // Arrière-plan
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/images/back.png'), // Image d'arrière-plan
+                    'assets/images/background.png'), // Image d'arrière-plan
                 fit: BoxFit.cover,
               ),
             ),
           ),
           // Contenu principal
           SingleChildScrollView(
-            controller:
-                _scrollController, // Affecte le contrôleur au ScrollView
             child: Column(
               children: [
                 const SizedBox(height: 50),
                 // Image principale
                 Image.asset(
-                  'assets/images/bienvenu.jpg', // Image principale
+                  'assets/images/bienv.png', // Image principale
                   height: 200,
                   width: 200,
                 ),
                 const SizedBox(height: 20),
                 // Texte de bienvenue
-                Text(
+                const Text(
                   "Bienvenue Sur Vendini",
                   style: TextStyle(
                     fontSize: 24,
@@ -46,8 +41,8 @@ class WelcomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     "Découvrez notre application de commerce d'articles occasion à prix réduits. "
                     "Achetez et vendez avec notre communauté Vendini.",
@@ -59,47 +54,44 @@ class WelcomeScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(
-                    height: 100), // Ajoute un espace pour le défilement
-                const SizedBox(height: 50), // Ajustez l'espace si nécessaire
-                // Image de la flèche pour naviguer vers ThreePage
-                // Arrow to navigate to the next page
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, '/four'); // Navigate to FourPage
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFB4004E),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20), // Add space before the home button
+                const SizedBox(height: 100), // Ajoute un espace pour le défilement
               ],
             ),
           ),
+          // Flèche de navigation en bas
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/three'); // Navigation vers ThreePage
+              },
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFB4004E),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
+            ),
+          ),
+          // Bouton d'accueil en bas à gauche
           Positioned(
             bottom: 20,
             left: 20,
             child: GestureDetector(
               onTap: () {
-                Navigator.pop(context); // Navigate back to the previous page
+                Navigator.pop(context); // Retour à la page précédente
               },
               child: Image.asset(
-                'assets/images/Home.png', // Path to your home image
-                height: 30, // Adjust the height as needed
-                width: 30, // Adjust the width as needed
+                'assets/images/Home.png', // Chemin de l'image
+                height: 30,
+                width: 30,
               ),
             ),
           ),

@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
           // Image d'arrière-plan couvrant tout l'écran
           Positioned.fill(
             child: Image.asset(
-              'assets/images/back.png', // Remplacez par votre image
+              'assets/images/background.png', // Remplacez par votre image
               fit: BoxFit.cover,
             ),
           ),
@@ -30,19 +30,18 @@ class SplashScreen extends StatelessWidget {
                 const SizedBox(height: 20), // Espace entre le logo et le bouton
 
                 // Bouton centré
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink.shade700,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  onPressed: () {
-                    // Navigation vers la première page
-                    Navigator.pushNamed(context, '/home');
-                  },
+               ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.pink.shade700,
+    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+  ),
+                 onPressed: () {
+    // Navigation vers WelcomeScreen
+    Navigator.pushNamed(context, '/welcome');
+  },
                   child: const Text(
                     'Commencer',
                     style: TextStyle(

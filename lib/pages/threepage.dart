@@ -10,7 +10,7 @@ class ThreePage extends StatelessWidget {
         children: [
           // Background image
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/back.png'), // Background image
                 fit: BoxFit.cover,
@@ -44,7 +44,7 @@ class ThreePage extends StatelessWidget {
                 const SizedBox(height: 20),
                 // Description
                 const Text(
-                  "Connectez-vous sur l'application !  Choisissez ce que vous voulez !         Cliquez et acheter",
+                  "Connectez-vous sur l'application ! Choisissez ce que vous voulez ! Cliquez et acheter",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

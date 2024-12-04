@@ -10,7 +10,7 @@ class FivePage extends StatelessWidget {
         children: [
           // Arrière-plan avec dégradé
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                     'assets/images/back.png'), // Image d'arrière-plan

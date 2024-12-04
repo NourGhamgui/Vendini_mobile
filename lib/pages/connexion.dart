@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import 'package:vendini/pages/inscription.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:image_picker/image_picker.dart';
+// ignore: depend_on_referenced_packages
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
 
 class InscriptionPage extends StatefulWidget {
+  const InscriptionPage({super.key});
+
   @override
   _InscriptionPageState createState() => _InscriptionPageState();
 }
@@ -26,9 +30,9 @@ class _InscriptionPageState extends State<InscriptionPage> {
     var storagePermission = await Permission.photos.request();
 
     if (cameraPermission.isGranted && storagePermission.isGranted) {
-      final ImagePicker _picker = ImagePicker();
+      final ImagePicker picker = ImagePicker();
       final XFile? pickedFile =
-          await _picker.pickImage(source: ImageSource.gallery);
+          await picker.pickImage(source: ImageSource.gallery);
 
       if (pickedFile != null) {
         setState(() {
@@ -127,10 +131,10 @@ class _InscriptionPageState extends State<InscriptionPage> {
                             right: -10,
                             bottom: -10,
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.camera_alt,
                                 size: 28,
-                                color: const Color.fromARGB(255, 88, 2, 39),
+                                color: Color.fromARGB(255, 88, 2, 39),
                               ),
                               onPressed: _pickImage,
                             ),
@@ -224,7 +228,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
         Text(
           label,
           style:
-              TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF4f0002)),
+              const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF4f0002)),
         ),
         const SizedBox(height: 8),
         TextField(

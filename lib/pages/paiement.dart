@@ -5,19 +5,19 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const PaymentScreen(),
+      home: PaymentScreen(),
     );
   }
 }
 
 class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
+  const PaymentScreen({super.key});
 
   @override
   _PaymentScreenState createState() => _PaymentScreenState();
@@ -109,13 +109,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
 }
 
 class AppBarSection extends StatelessWidget {
-  const AppBarSection({Key? key}) : super(key: key);
+  const AppBarSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
+      children: [
         Icon(Icons.arrow_back, color: Colors.black),
         SizedBox(width: 10.0),
         Text(
@@ -134,7 +134,7 @@ class AppBarSection extends StatelessWidget {
 class ProductInfo extends StatelessWidget {
   final double price;
 
-  const ProductInfo({Key? key, required this.price}) : super(key: key);
+  const ProductInfo({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -159,8 +159,8 @@ class ProductInfo extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5.0),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   CircleAvatar(
                     radius: 14,
                     backgroundImage: AssetImage(
@@ -195,8 +195,7 @@ class PaymentMethod extends StatelessWidget {
   final ValueChanged<String?> onSelect;
 
   const PaymentMethod(
-      {Key? key, required this.selectedPaymentMethod, required this.onSelect})
-      : super(key: key);
+      {super.key, required this.selectedPaymentMethod, required this.onSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +219,7 @@ class PaymentMethod extends StatelessWidget {
 }
 
 class DeliveryInfoBox extends StatelessWidget {
-  const DeliveryInfoBox({Key? key}) : super(key: key);
+  const DeliveryInfoBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -230,8 +229,8 @@ class DeliveryInfoBox extends StatelessWidget {
         color: Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Column(
-        children: const [
+      child: const Column(
+        children: [
           Text(
             'Hey !',
             style: TextStyle(
@@ -256,11 +255,10 @@ class OrderSummary extends StatelessWidget {
   final double total;
 
   const OrderSummary(
-      {Key? key,
+      {super.key,
       required this.productPrice,
       required this.shippingCost,
-      required this.total})
-      : super(key: key);
+      required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -294,7 +292,7 @@ class OrderSummary extends StatelessWidget {
 }
 
 class ConfirmButton extends StatelessWidget {
-  const ConfirmButton({Key? key}) : super(key: key);
+  const ConfirmButton({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ class PanierPage extends StatefulWidget {
   const PanierPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PanierPageState createState() => _PanierPageState();
 }
 
@@ -377,7 +378,7 @@ class _PanierPageState extends State<PanierPage> {
             top: 30, // Positionne l'icône en haut à gauche
             left: 15, // Décale un peu à gauche
             child: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white, size: 30),
+              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
               onPressed: () {
                 Navigator.pop(context); // Retourne à la page précédente
               },

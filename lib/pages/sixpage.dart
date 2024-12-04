@@ -8,106 +8,124 @@ class SixPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
+          // Fond d'écran avec une image
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/back.png'), // Background image
-                fit: BoxFit.cover,
+                image: AssetImage('assets/images/background.png'), // Image de fond
+                fit: BoxFit.cover, // Adapter l'image à la taille de l'écran
               ),
             ),
           ),
-          // Main content
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Vertical centering
-              crossAxisAlignment:
-                  CrossAxisAlignment.center, // Horizontal centering
-              children: [
-                // Logo de l'application
-                Image.asset(
-                  'assets/images/logoVendini.png', // Replace with your logo
-                  height: 200,
-                ),
-                const SizedBox(height: 20), // Space between logo and buttons
-
-                // Subtitle
-                Text(
-                  'Connectez-vous avec votre adresse mail électronique.',
+          // Contenu principal
+          Column(
+            children: [
+              const SizedBox(height: 50), // Espace avant le titre
+              // Ligne pour centrer le logo et le titre
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center, // Centrer le contenu
+                children: [
+                  // Logo centré
+                  Padding(
+                    padding: const EdgeInsets.all(10), // Ajoute un petit padding autour du logo
+                    child: Image.asset(
+                      'assets/images/logoVendini.png', // Chemin de votre logo
+                      height: 160, // Taille ajustée du logo (plus grand)
+                      width: 160, // Largeur ajustée
+                      fit: BoxFit.contain, // Ajuste l'image sans la déformer
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 50), // Espace sous le logo pour centrer le titre
+              // Titre centré
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20), // Espacement latéral
+                child: Text(
+                  "Inscription à Vendini",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xffad492b),
+                    color: Color(0xFF8A1D2E), // Rouge foncé
+                    letterSpacing: 1.5,
+                    fontFamily: 'ElegantFont', // Remplacez par une police personnalisée
                   ),
                 ),
-                const SizedBox(height: 30), // Space before buttons
+              ),
+              const SizedBox(height: 20), // Espacement sous le titre
 
-                // Button for Gmail login
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF9B2A2A), // Button color
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    minimumSize: Size(
-                        200, 50), // Set minimum width for equal button sizes
-                  ),
-                  onPressed: () {
-                    // Action for Gmail login
-                  },
-                  child: const Text(
-                    'Connexion avec Gmail',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xffd56464),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+              // Sous-titre
+              const Text(
+                "Connectez-vous avec votre adresse mail électronique.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color(0xFF8A1D2E), // Rouge foncé
                 ),
-                const SizedBox(height: 20), // Space between buttons
+              ),
+              const SizedBox(height: 40), // Espace avant les boutons
 
-                // Button to create an account
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF9B2A2A), // Button color
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    minimumSize: Size(
-                        200, 50), // Set minimum width for equal button sizes
+              // Boutons
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF9B2A2A), // Rouge foncé
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  onPressed: () {
-                    // Action to create an account
-                  },
-                  child: const Text(
-                    'Créer un compte',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xffd56464),
-                      fontWeight: FontWeight.bold,
-                    ),
+                  shadowColor: Colors.black.withOpacity(0.3),
+                  elevation: 5,
+                ),
+                onPressed: () {
+                  // Action pour "Connexion avec Gmail"
+                },
+                child: const Text(
+                  'Connexion avec Gmail',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 20), // Espacement entre les boutons
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF9B2A2A), // Rouge foncé
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  shadowColor: Colors.black.withOpacity(0.3),
+                  elevation: 5,
+                ),
+                onPressed: () {
+                  // Action pour "Créer un compte"
+                },
+                child: const Text(
+                  'Créer un compte',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
-          // Home button image at the bottom left
+          // Bouton "Home" en bas à gauche
           Positioned(
             bottom: 20,
             left: 20,
             child: GestureDetector(
               onTap: () {
-                Navigator.pop(context); // Navigate back to the previous page
+                Navigator.pop(context); // Retour à la page précédente
               },
               child: Image.asset(
-                'assets/images/Home.png', // Path to your home image
-                height: 30, // Adjust the height as needed
-                width: 30, // Adjust the width as needed
+                'assets/images/Home.png', // Chemin de votre icône "Home"
+                height: 30, // Taille ajustée
+                width: 30, // Taille ajustée
               ),
             ),
           ),
