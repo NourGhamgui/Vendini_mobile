@@ -78,15 +78,12 @@ class _HomePageState extends State<HomePage> {
               print('Favoris');
             },
           ),
-         IconButton(
-      icon: const Icon(Icons.shopping_cart, color: Colors.white),
-      onPressed: () {
-        Navigator.pushNamed(
-          context,
-          '/cart', // Navigation vers la page du panier
-        );
-      },
-    ),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart, color: Colors.white),
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart'); // Navigation vers la page du panier
+            },
+          ),
         ],
       ),
       body: Container(
@@ -119,8 +116,8 @@ class _HomePageState extends State<HomePage> {
                             product['name']!,
                             product['price']!,
                             product['image']!,
-                            showDiscount: true,
                             hideDetails: true,
+                            showDiscount: true,
                           ))
                       .toList(),
                 ),
@@ -143,7 +140,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 16.0),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(1.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: BackdropFilter(
@@ -284,28 +281,14 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Stack(
           children: [
-            Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    imagePath,
-                    width: 120,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                if (!hideDetails)
-                  Text(
-                    productName,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                Text(
-                  price,
-                  style: const TextStyle(fontSize: 14, color: Colors.grey),
-                ),
-              ],
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                imagePath,
+                width: 165,
+                height: 135,
+                fit: BoxFit.cover,
+              ),
             ),
             if (showDiscount)
               Positioned(
@@ -320,7 +303,26 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-            if (showCartIcon)
+            if (!hideDetails)
+              Positioned(
+                bottom: 5,
+                left: 10,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      productName,
+                      style: const TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      price,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+              if (showCartIcon)
               Positioned(
                 top: 5,
                 right: 5,
