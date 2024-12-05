@@ -9,7 +9,10 @@ import 'package:vendini/pages/info_produit/infprod.dart';
 import 'package:vendini/pages/sixpage.dart';
 import 'package:vendini/pages/splash_screen.dart';
 import 'package:vendini/pages/threepage.dart';
+import 'package:vendini/pages/vendeur.dart';
 import 'package:vendini/pages/welcome_screen.dart';
+
+
 
  // Import de la page historique
 
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vendini',
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const Vendeur(),
       routes: {
         '/addProduct': (context) => const AddProductPage(), // Route pour ajouter un produit
         '/history': (context) => const HistoryPage(), // Route pour la page historique
