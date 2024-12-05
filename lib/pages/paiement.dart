@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vendini/pages/panier/panier.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Paiement extends StatelessWidget {
+  const Paiement({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +21,7 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  String? selectedPaymentMethod =
-      'Paiement à la livraison'; // Option par défaut
+  String? selectedPaymentMethod = 'Paiement à la livraison'; // Option par défaut
   double productPrice = 50.0;
   double shippingCost = 10.0;
 
@@ -35,10 +31,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity, // Couvre toute la hauteur
+        width: double.infinity,  // Couvre toute la largeur
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'assets/images/back.png'), // Conserver le nom de l'image de fond
+            image: AssetImage('assets/images/back.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -111,14 +108,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
 class AppBarSection extends StatelessWidget {
   const AppBarSection({super.key});
 
+ 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(Icons.arrow_back, color: Colors.black),
-        SizedBox(width: 10.0),
-        Text(
+        IconButton(
+          
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const PanierPage()),
+            ); // Navigue explicitement vers la page du panier
+          },
+        ),
+        
+        const SizedBox(width: 10.0),
+        const Text(
           'Achat sécurisé',
           style: TextStyle(
             color: Color(0xFFAA2C50),
@@ -130,6 +138,8 @@ class AppBarSection extends StatelessWidget {
     );
   }
 }
+
+
 
 class ProductInfo extends StatelessWidget {
   final double price;
@@ -163,13 +173,18 @@ class ProductInfo extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 14,
-                    backgroundImage: AssetImage(
-                        'assets/images/poupee.png'), // Conserver le nom de l'image du vendeur
+                    backgroundImage: AssetImage('assets/images/poupee.png'),
                   ),
                   SizedBox(width: 8.0),
-                  Text(
-                    'Mise en vente par Nour',
-                    style: TextStyle(color: Colors.white70, fontSize: 14.0),
+                  Row(
+                    children: [
+                     
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Mise en vente par Nour',
+                        style: TextStyle(color: Colors.white70, fontSize: 14.0),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -178,7 +193,7 @@ class ProductInfo extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-              'assets/images/produit.png', // Conserver le nom de l'image du produit
+              'assets/images/produit.png',
               width: 60.0,
               height: 60.0,
               fit: BoxFit.cover,
